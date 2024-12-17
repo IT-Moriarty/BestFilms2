@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="{% static 'main/series.css' %}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Сериалы</title>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="header">
+					<div class="header1">
+						<a href="{% url 'index' %}"><img src="{% static 'main/img/filmshous.png' %}" alt="#" /></a>
+					</div>
+					<div class="header2">
+						<div class="header_link1"><a href="{% url 'serials' %}" class="link">Сериалы</a></div>
+					</div>
+					<div class="header3">
+						<div class="header_link2"><a href="{% url 'films' %}" class="link"> Фильмы</a></div>
+					</div>
+					<div class="header4">
+						<div class="header_search">
+							<img src="{% static 'main/img/search.png' %}" alt="#" />
+						</div>
+						<input type="text" class="input_search" />
+					</div>
+					<div class="header5">
+						<div class="header_avtorization">
+							<a href="#"><img src="{% static 'main/img/Group 1 (2).png' %}" alt="#" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="header_line">
+			<hr class="line" />
+		</div>
+		<main>
+			<div class="container">
+				<div class="films">
+
+                    {% for Serials in Serial %}
+					<div class="series1">
+						<a href="{% url 'fullinfo_s' Serials.id %}" class="series1"
+							><img src="{{ Serials.image.url }}" alt="#" class="film_img"
+						/></a>
+						<div class="text1"><a href="{% url 'fullinfo_s' Serials.id %}" class="series1">{{ Serials.title }}</a></div>
+					</div>
+                    {% endfor %}
+
+				</div>
+			</div>
+		</main>
+		<div class="header_line">
+			<hr class="line" />
+		</div>
+		<footer>
+			<div class="container">
+				<div class="footer">
+					<div class="footer1">
+						<div class="footer1_text">
+							© 2003–2023 18+<br />
+							Федеральные каналы доступны для бесплатного просмотра
+							круглосуточно<br />
+							HBO ® and related service marks are the property of Home Box
+							Office, Inc<br />
+							Адрес местонахождения: 115035, Россия, г. Москва,
+							ул.<br />
+							Садовническая, д. 82, стр. 2, пом. 9А01<br />
+							Адрес для обращений пользователей: exmaple@support.yandex.ru<br />
+							CоглашениеСправка
+						</div>
+					</div>
+					<div class="footer2">
+						<div class="footer2_text1">
+							<a href="#" class="link">Задать вопрос</a>
+						</div>
+						<div class="footer2_1">
+							<div class="footer2_img1">
+								<a href="#"><img src="{% static 'main/img//Vector (1).png' %}" alt="" /></a>
+							</div>
+							<div class="footer2_img2">
+								<a href="#"><img src="{% static 'main/img//Vector (2).png' %}" alt="" /></a>
+							</div>
+							<div class="footer2_img3">
+								<a href="#"><img src="{% static 'main/img//Vector (3).png' %}" alt="" /></a>
+							</div>
+							<div class="footer2_img3">
+								<a href="#"><img src="{% static 'main/img//Vector (4).png' %}" alt="" /></a>
+							</div>
+						</div>
+						<div class="footer2_Text2">Проект компании Wayfarers</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
